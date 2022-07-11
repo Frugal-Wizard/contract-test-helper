@@ -31,8 +31,8 @@ contract Adder {
 
 ```typescript
 import { Adder, AddResult } from './Adder';
-import { AddContextFunction, BaseTestContext, TestScenario, TestScenarioProperties, generatorChain, range } from 'contract-test-helper';
-import { Transaction } from 'abi2ts-lib';
+import { AddContextFunction, BaseTestContext, TestScenario, TestScenarioProperties, generatorChain, range } from '@theorderbookdex/contract-test-helper';
+import { Transaction } from '@theorderbookdex/abi2ts-lib';
 
 interface AdderTestContext extends BaseTestContext {
     readonly adder: Adder;

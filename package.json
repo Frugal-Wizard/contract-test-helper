@@ -1,14 +1,16 @@
 {
-  "name": "contract-test-helper",
+  "name": "@theorderbookdex/contract-test-helper",
   "version": "0.1.0",
+  "description": "This is a collection of helper functions and classes to help test Solidity smart contracts using mocha",
   "license": "MIT",
-  "private": true,
+  "author": "Frugal-Wizard",
   "main": "dist/contract-test-helper.js",
+  "repository": "https://github.com/TheOrderbookDEX/contract-test-helper.git",
   "scripts": {
     "prepare": "gulp"
   },
   "dependencies": {
-    "abi2ts-lib": "file:deps/abi2ts-lib-0.1.0.tgz",
+    "@theorderbookdex/abi2ts-lib": "~0.1.0",
     "ethers": "~5.6.9",
     "ganache": "~7.3.1",
     "levelup": "~5.1.1",
