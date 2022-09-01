@@ -1,6 +1,6 @@
 {
   "name": "@theorderbookdex/contract-test-helper",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "This is a collection of helper functions and classes to help test Solidity smart contracts using mocha",
   "license": "MIT",
   "author": "Frugal-Wizard",
