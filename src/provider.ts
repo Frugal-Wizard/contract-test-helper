@@ -64,3 +64,11 @@ export async function setUpEthereumProvider() {
 export async function tearDownEthereumProvider() {
     delete global.ethereum;
 }
+
+export async function setChainTime(timestamp: number) {
+    if (!global.ethereum) {
+        throw new Error('No Ethereum Provider');
+    }
+    await global.ethereum.send('evm_setTime', [ timestamp * 1000 ]);
+    await global.ethereum.send('evm_mine');
+}
