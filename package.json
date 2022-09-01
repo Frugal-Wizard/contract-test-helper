@@ -8,6 +8,7 @@
   "repository": "https://github.com/TheOrderbookDEX/contract-test-helper.git",
   "scripts": {
     "prepare": "gulp",
+    "lint": "eslint . --ext .ts"
   },
   "dependencies": {
     "@theorderbookdex/abi2ts-lib": "~0.2.0",
