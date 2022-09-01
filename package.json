@@ -7,7 +7,7 @@
   "main": "dist/contract-test-helper.js",
   "repository": "https://github.com/TheOrderbookDEX/contract-test-helper.git",
   "scripts": {
-    "prepare": "gulp"
+    "prepare": "gulp",
   },
   "dependencies": {
     "@theorderbookdex/abi2ts-lib": "~0.2.0",
