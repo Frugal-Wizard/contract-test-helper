@@ -16,7 +16,8 @@ export interface BaseTestContext extends Accounts {
     readonly accounts: ReadonlyArray<string>;
 }
 
-export type TestError = string | { new(...args: unknown[]): Error };
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type TestError = string | Function;
 
 export interface TestScenarioProperties<TestContext extends BaseTestContext> {
     readonly only?: boolean;
