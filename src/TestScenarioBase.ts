@@ -3,7 +3,10 @@ export interface TestScenarioFunction<TestContext, ExecuteResult, ExecuteStaticR
 }
 
 export interface TestScenarioContext<TestContext, ExecuteResult, ExecuteStaticResult> {
-    it(title: string, fn: (ctx: TestContext & TestFunctions<ExecuteResult, ExecuteStaticResult>) => void): void;
+    it: {
+        (title: string, fn: (ctx: TestContext & TestFunctions<ExecuteResult, ExecuteStaticResult>) => void): void;
+        only(title: string, fn: (ctx: TestContext & TestFunctions<ExecuteResult, ExecuteStaticResult>) => void): void;
+    };
 }
 
 export interface TestFunctions<ExecuteResult, ExecuteStaticResult> {
@@ -60,11 +63,17 @@ export abstract class TestScenarioBase<TestContext, ExecuteResult, ExecuteStatic
                 afterEach(() => scenario.teardown());
 
                 fn({
-                    it: (title, fn) => it(title, () => fn({
+                    it: Object.assign((title: string, fn: (ctx: TestContext & TestFunctions<ExecuteResult, ExecuteStaticResult>) => void) => it(title, () => fn({
                         ...ctx,
                         execute: () => scenario.execute(ctx),
                         executeStatic: () => scenario.executeStatic(ctx),
-                    })),
+                    })), {
+                        only: (title: string, fn: (ctx: TestContext & TestFunctions<ExecuteResult, ExecuteStaticResult>) => void) => it.only(title, () => fn({
+                            ...ctx,
+                            execute: () => scenario.execute(ctx),
+                            executeStatic: () => scenario.executeStatic(ctx),
+                        })),
+                    }),
                 });
             });
         })(this);
