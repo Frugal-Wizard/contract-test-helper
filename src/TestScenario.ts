@@ -2,7 +2,7 @@ import { setUpEthereumProvider, tearDownEthereumProvider } from './provider';
 import { describeError, Describer, describeWith } from './describer';
 import { AddContextFunction, TestScenarioBase } from './TestScenarioBase';
 import { TestSetupAction } from './TestSetupAction';
-import { getAccounts } from '@theorderbookdex/abi2ts-lib';
+import { getAccounts } from '@frugal-wizard/abi2ts-lib';
 
 export enum Account {
     MAIN = 'mainAccount',
