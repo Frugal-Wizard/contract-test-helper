@@ -8,7 +8,8 @@
   "repository": "https://github.com/Frugal-Wizard/contract-test-helper.git",
   "scripts": {
     "prepare": "gulp",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@frugal-wizard/abi2ts-lib": "^0.4.0",
