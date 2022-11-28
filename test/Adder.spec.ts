@@ -1,40 +1,7 @@
-# README
+// example used in README
 
-## What is this?
-
-This is a collection of helper functions and classes to help test Solidity smart contracts using [mocha](https://github.com/mochajs/mocha).
-
-## What functionality does it provide?
-
-* An ethereum provider stored in memory implemented using [ganache](https://github.com/trufflesuite/ganache).
-* A framework for building reusable test scenarios.
-* A set of utilities to generate test scenarios.
-
-## Should I use this?
-
-Currently it's not to be considered stable.
-
-Use at your own discretion and don't rely on its interface staying backward compatible.
-
-## How do I use this?
-
-```solidity
-contract Adder {
-    uint256 private _value;
-
-    function add(uint256 value_) external {
-        _value += value_;
-    }
-
-    function value() external view returns (uint256) {
-        return _value;
-    }
-}
-```
-
-```typescript
-import { Adder } from './Adder';
-import { SetupAction, createEthereumScenario, describeSetupActions, executeSetupActions, generatorChain, range } from '@frugal-wizard/contract-test-helper';
+import { TransactionTest as Adder } from './contracts-ts/TransactionTest';
+import { SetupAction, createEthereumScenario, describeSetupActions, executeSetupActions, generatorChain, range } from '../src/contract-test-helper';
 import { expect } from 'chai';
 
 function createAddAction({ value }: { value: bigint }): SetupAction<{ contract: Adder }> {
@@ -97,4 +64,3 @@ describe('Adder', () => {
         });
     }
 });
-```
