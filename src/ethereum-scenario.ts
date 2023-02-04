@@ -1,18 +1,32 @@
-import { getAccounts } from '@frugal-wizard/abi2ts-lib';
+import { getAccounts, ZERO_ADDRESS } from '@frugal-wizard/abi2ts-lib';
 import { setUpEthereumProvider, tearDownEthereumProvider } from './provider';
 import { createTestScenario, TestSetupContext, TestScenario, TestScenarioProperties } from './scenario';
 
 export enum Account {
-    MAIN = 'mainAccount',
-    SECOND = 'secondAccount',
-    THIRD = 'thirdAccount',
+    MAIN    = 'mainAccount',
+    SECOND  = 'secondAccount',
+    THIRD   = 'thirdAccount',
+    FOURTH  = 'fourthAccount',
+    FIFTH   = 'fifthAccount',
+    SIXTH   = 'sixthAccount',
+    SEVENTH = 'seventhAccount',
+    EIGHTH  = 'eighthAccount',
+    NINTH   = 'ninthAccount',
+    TENTH   = 'tenthAccount',
 }
 
-type Accounts = { [account in Account]: string };
+export enum Addresses {
+    ZERO   = 'zeroAddress',
+    RANDOM = 'randomAddress',
+}
 
-export interface EthereumSetupContext extends Accounts {
+export type EthereumSetupContext = {
+    [account in Account]: string;
+} & {
+    [address in Addresses]: string;
+} & {
     accounts: string[];
-}
+};
 
 export type EthereumScenarioProperties<TestContext> =
     Omit<TestScenarioProperties<TestContext>, 'setup'> & {
@@ -30,8 +44,36 @@ export function createEthereumScenario<TestContext>(props: EthereumScenarioPrope
         async setup(ctx) {
             await setUpEthereumProvider();
             const accounts = await getAccounts();
-            const [ mainAccount, secondAccount, thirdAccount ] = accounts;
-            return await setup({ ...ctx, accounts, mainAccount, secondAccount, thirdAccount });
+            const [
+                mainAccount,
+                secondAccount,
+                thirdAccount,
+                fourthAccount,
+                fifthAccount,
+                sixthAccount,
+                seventhAccount,
+                eighthAccount,
+                ninthAccount,
+                tenthAccount,
+            ] = accounts;
+            const zeroAddress = ZERO_ADDRESS;
+            const randomAddress = '0x1000000000000000000000000000000000000000';
+            return await setup({
+                ...ctx,
+                accounts,
+                mainAccount,
+                secondAccount,
+                thirdAccount,
+                fourthAccount,
+                fifthAccount,
+                sixthAccount,
+                seventhAccount,
+                eighthAccount,
+                ninthAccount,
+                tenthAccount,
+                zeroAddress,
+                randomAddress,
+            });
         },
 
         async teardown() {
