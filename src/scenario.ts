@@ -49,7 +49,7 @@ export interface TestScenarioProperties<TestContext> {
 }
 
 export interface TestScenario<TestContext> {
-    description: string;
+    readonly description: string;
 
     describe(fn: {
         (ctx: {
