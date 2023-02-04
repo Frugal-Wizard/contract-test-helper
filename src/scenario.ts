@@ -27,7 +27,7 @@ function getAddContext() {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const addContext: typeof import('mochawesome/addContext') = require('mochawesome/addContext');
         return (ctx: Mocha.Context, title: string, value: unknown) => {
-            if (typeof(value) == 'bigint') value = value.toString();
+            value = JSON.parse(JSON.stringify(value, (_, value) => typeof(value) == 'bigint' ? String(value) : value));
             addContext(ctx, { title, value });
         };
     } catch {
