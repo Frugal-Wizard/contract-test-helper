@@ -34,7 +34,7 @@ contract Adder {
 
 ```typescript
 import { Adder } from './Adder';
-import { SetupAction, createEthereumScenario, describeSetupActions, executeSetupActions, generatorChain, range } from '@frugal-wizard/contract-test-helper';
+import { SetupAction, createEthereumScenario, describeSetupActions, executeSetupActions, generatorChain, range } from '@frugalwizard/contract-test-helper';
 import { expect } from 'chai';
 
 function createAddAction({ value }: { value: bigint }): SetupAction<{ contract: Adder }> {

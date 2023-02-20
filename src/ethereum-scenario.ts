@@ -1,4 +1,4 @@
-import { getAccounts, ZERO_ADDRESS } from '@frugal-wizard/abi2ts-lib';
+import { getAccounts, ZERO_ADDRESS } from '@frugalwizard/abi2ts-lib';
 import { setUpEthereumProvider, tearDownEthereumProvider } from './provider';
 import { createTestScenario, TestSetupContext, TestScenario, TestScenarioProperties } from './scenario';
 
