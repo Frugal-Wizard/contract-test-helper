@@ -1,6 +1,6 @@
 {
   "name": "@frugalwizard/contract-test-helper",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "This is a collection of helper functions and classes to help test Solidity smart contracts using mocha",
   "license": "MIT",
   "author": "Frugal-Wizard",
